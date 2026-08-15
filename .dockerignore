@@ -1,0 +1,14 @@
+.git
+.gitignore
+__pycache__
+*.pyc
+*.pyo
+.pytest_cache
+.env
+venv
+.venv
+README.md
+README.pdf
+LICENSE
+test_app.py
+start_flask.sh

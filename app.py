@@ -17,7 +17,7 @@ app.secret_key = os.getenv("SECRET_KEY")
 mongo = PyMongo(app, tlsCAFile=certifi.where() if "mongodb+srv" in (os.getenv("MONGO_URI") or "") else None)
 
 # Home page -> list students
-@app.route('/')
+@app.route('/'):
 def index():
     students = mongo.db.students.find()
     return render_template('index.html', students=students)

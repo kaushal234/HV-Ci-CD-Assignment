@@ -116,7 +116,7 @@ pipeline {
         success {
             emailext(
                 to: "${NOTIFY_EMAIL}",
-                subject: "✅ SUCCESS: ${JOB_NAME} #${BUILD_NUMBER} deployed",
+                subject: "[SUCCESS] ${JOB_NAME} #${BUILD_NUMBER} deployed",
                 body: """The CI/CD pipeline succeeded.
 
 Commit SHA: ${GIT_COMMIT}
@@ -132,10 +132,10 @@ Pipeline run: ${BUILD_URL}
         failure {
             emailext(
                 to: "${NOTIFY_EMAIL}",
-                subject: "❌ FAILURE: ${JOB_NAME} #${BUILD_NUMBER} failed at ${FAILED_STAGE}",
+                subject: "[FAILURE] ${JOB_NAME} #${BUILD_NUMBER} failed at ${env.FAILED_STAGE}",
                 body: """The CI/CD pipeline failed.
 
-Failed stage: ${FAILED_STAGE}
+Failed stage: ${env.FAILED_STAGE}
 Commit SHA: ${GIT_COMMIT}
 Branch: ${GIT_BRANCH}
 
